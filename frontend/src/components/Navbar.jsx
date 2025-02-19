@@ -21,8 +21,6 @@ const Navbar = () => {
               <Link to="/features" className="text-white hover:text-gray-300">FEATURES</Link>
               <Link to="/portfolios" className="text-white hover:text-gray-300">PORTFOLIOS</Link>
               <Link to="/blog" className="text-white hover:text-gray-300">BLOG</Link>
-              <Link to="/shop" className="text-white hover:text-gray-300">SHOP</Link>
-              <Link to="/pages" className="text-white hover:text-gray-300">PAGES</Link>
             </div>
           </div>
 
@@ -57,8 +55,6 @@ const Navbar = () => {
             <Link to="/features" className="block text-white hover:text-gray-300 px-3 py-2">FEATURES</Link>
             <Link to="/portfolios" className="block text-white hover:text-gray-300 px-3 py-2">PORTFOLIOS</Link>
             <Link to="/blog" className="block text-white hover:text-gray-300 px-3 py-2">BLOG</Link>
-            <Link to="/shop" className="block text-white hover:text-gray-300 px-3 py-2">SHOP</Link>
-            <Link to="/pages" className="block text-white hover:text-gray-300 px-3 py-2">PAGES</Link>
           </div>
         </div>
       )}
