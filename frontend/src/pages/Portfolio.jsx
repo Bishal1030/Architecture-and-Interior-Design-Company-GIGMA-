@@ -496,10 +496,10 @@ const Portfolio = () => {
         <select
           className="bg-white w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition"
         >
-          <option value="">Select Project Type</option>
-          <option value="residential">Residential</option>
-          <option value="commercial">Commercial</option>
-          <option value="hospitality">Hospitality</option>
+          <option value="" className="text-black">Select Project Type</option>
+          <option value="residential" className="text-black">Residential</option>
+          <option value="commercial" className="text-black">Commercial</option>
+          <option value="hospitality" className="text-black">Hospitality</option>
         </select>
         <textarea
           placeholder="Tell us about your project"
