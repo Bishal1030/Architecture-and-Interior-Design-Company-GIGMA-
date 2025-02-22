@@ -1,23 +1,50 @@
-import { motion } from 'framer-motion';
-import backgroundImage from '../assets/background3.jpg'
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import backgroundImage from '../assets/background3.jpg'; // Import the initial background image
+import backgroundImage1 from '../assets/background4.jpg'
+import backgroundImage2 from '../assets/background5.jpg'
+
+const images = [
+  backgroundImage,
+  backgroundImage1,
+  backgroundImage2
+];
 
 const Hero = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prevImage) => (prevImage + 1) % images.length);
+    }, 7000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="relative h-screen w-full flex items-center justify-center">
-      {/* Background Image */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        className="absolute top-0 left-0 w-full h-full z-0"
-        style={{
-          backgroundImage: `linear-gradient(rgba(71, 91, 95, 0.3), rgba(71, 91, 95, 0.3)), url(${backgroundImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          width: "100vw"
-        }}
-      />
+      {/* Background Image Carousel */}
+      <AnimatePresence>
+        {images.map((image, index) => (
+          index === currentImage && (
+            <motion.div 
+              key={index}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5 }}
+              className="absolute top-0 left-0 w-full h-full z-0"
+              style={{
+                backgroundImage: `linear-gradient(rgba(71, 91, 95, 0.3), rgba(71, 91, 95, 0.3)), url(${image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                width: "100vw"
+              }}
+            />
+          )
+        ))}
+      </AnimatePresence>
 
       {/* Content */}
       <motion.div 

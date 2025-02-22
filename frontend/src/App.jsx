@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Features from "./pages/Features";
 import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/features" element={<Features />} />
           <Route path="/portfolios" element={<Portfolio />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
     </Router>

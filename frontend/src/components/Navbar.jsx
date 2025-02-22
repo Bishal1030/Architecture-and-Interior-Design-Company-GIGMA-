@@ -1,11 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className="bg-transparent absolute w-full z-50">
+    <nav className={`fixed w-full z-50 ${isScrolled ? 'bg-primary bg-opacity-30 backdrop-filter backdrop-blur-lg' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
@@ -21,6 +37,7 @@ const Navbar = () => {
               <Link to="/features" className="text-white hover:text-gray-300">FEATURES</Link>
               <Link to="/portfolios" className="text-white hover:text-gray-300">PORTFOLIOS</Link>
               <Link to="/blog" className="text-white hover:text-gray-300">BLOG</Link>
+              <Link to="/about" className="text-white hover:text-gray-300">ABOUT US</Link> 
             </div>
           </div>
 
@@ -62,4 +79,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;
