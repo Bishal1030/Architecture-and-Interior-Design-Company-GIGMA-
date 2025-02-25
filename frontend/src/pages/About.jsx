@@ -189,7 +189,6 @@ const About = () => {
       </div>
 
       {/* Footer */}
-      <Footer />
     </div>
   );
 };

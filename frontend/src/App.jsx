@@ -8,6 +8,7 @@ import Features from "./pages/Features";
 import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
 import About from "./pages/About";
+import Client from "./components/Client";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <>
                 <Hero />
                 <Services />
+                <Client />
                 <Projects />
                 <Footer />
               </>
